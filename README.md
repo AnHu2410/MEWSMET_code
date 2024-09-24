@@ -6,3 +6,5 @@ For obtaining the data, please fill in the form "Data License Agreement" (tba) a
 In order to reproduce the experiments, the file MEWSMET.txt and the MEWS-directory have to be stored in the file [data](data).
 
 Once the data has been stored, the Pearson correlation between TLMs / CMs / all metaphors and the essay scores, can be obtained by running python corpus.py.
+
+The code that was used for metaphor detection was taken from the [DeepMet github repository](https://github.com/YU-NLPLab/DeepMet). 
