@@ -3,6 +3,6 @@ Code for experiments presented in "Opinions are Buildings: Metaphors in Secondar
 
 For obtaining the data, please fill in the form "Data License Agreement" (tba) and send it to huelsing@uni-hildesheim.de. 
 
-In order to reproduce the experiments, the data has to be stored in the file [data].
+In order to reproduce the experiments, the data has to be stored in the file [a relative link](data).
 
 In order to get the Pearson correlation between TLMs / CMs / all metaphors and the essay scores, run python corpus.py.
