@@ -1,0 +1,1 @@
+Once you signed the Data License Agreement, you will receive the MEWSMET corpus (MEWSMET.txt), as well as the original files from the MEWS corpus that were used for annotation and a list containing the scores that expert raters attributed to each of the essays (both contained in a directory called MEWS).
