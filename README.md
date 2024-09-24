@@ -5,3 +5,4 @@ For obtaining the data, please fill in the form "Data License Agreement" (tbd) a
 
 In order to reproduce the experiments, the data has to be downloaded into the file [a relative link](data).
 
+In order to get the Pearson correlation between TLMs / CMs / all metaphors and the essay scores, run python corpus.py.
