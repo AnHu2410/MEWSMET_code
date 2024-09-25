@@ -47,16 +47,16 @@ class Corpus(object):
 
         for essay in self.list_of_essays:
             id_number_only = essay.id[:6]
-            T1 = essay.T == "T1"
-            T2 = essay.T == "T2"
+            t1 = essay.T == "T1"
+            t2 = essay.T == "T2"
 
-            if T1:
+            if t1:
                 essay_row = self.metadata.loc[self.metadata["Token T1"] == id_number_only]
                 score = essay_row[t1_score_column].values[0]
                 score = replace_comma_with_decimal_point(score)
                 essay.overall_score = score
 
-            elif T2:
+            elif t2:
                 essay_row = self.metadata.loc[self.metadata["Token T2"] == id_number_only]
                 score = essay_row[t2_score_column].values[0]
                 score = replace_comma_with_decimal_point(score)

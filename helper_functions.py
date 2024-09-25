@@ -3,7 +3,7 @@
 
 def get_prompt_and_t(filename):  # filenames reveal whether
     # the essays were written at beginning (T1) or end
-    # of schoolyear (T2) and which prompt the students
+    # of school year (T2) and which prompt the students
     # were given.
 
     prompt = ""
@@ -18,9 +18,11 @@ def get_prompt_and_t(filename):  # filenames reveal whether
         prompt = "Teachers"
     return prompt, t
 
+
 def hidden(path):  # checks if file or directory is a hidden file
     hidden_file = path.startswith(".")
     return hidden_file
+
 
 def replace_comma_with_decimal_point(score):  # turns comma into decimal point
     if "," in score:

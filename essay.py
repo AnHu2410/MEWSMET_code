@@ -8,8 +8,8 @@ class Essay(object):
     whether the essay was written at the beginning (T1) or end (T2)
     of the schoolyear, as well as the prompt, the overall raters' score
     the numbers of metaphors (tlms and cms) and the essay's text."""
-    def __init__(self, id):
-        self.id = id
+    def __init__(self, essay_id):
+        self.id = essay_id
         self.T = ""
         self.prompt = ""
         self.overall_score = 0
