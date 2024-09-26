@@ -3,15 +3,17 @@ on the prompt "TV-Ads" and one which is based on the prompt "Teacher".
 Then the data is preprocessed to meet the requirements of DeepMet."""
 
 from nltk import word_tokenize, pos_tag
+#import nltk
 import pandas as pd
 import os
 
+#nltk.download('punkt_tab')
 
 def split_data():  # splits data into essays
     # based on ads- and teacher-prompts (we use these splits
     # for training and testing)
 
-    path2mewsmet = "data/MEWSMET.txt"
+    path2mewsmet = "../data/MEWSMET.txt"
     mewsmet = pd.read_csv(path2mewsmet, sep="\t")
 
     # filter rows for prompt "TV-Ads":
@@ -87,8 +89,8 @@ class DeepmetDocCreator(object):
                 else:
                     pos_name = pos
                     context = local_contexts[index_local_contexts]
-                    self.tags.append(pos_name)  # add POS-tag to class attribute
-                    self.locals.append(context)  # add local context class attribute
+                    return pos_name, context
+
             elif word in punctuation:  # move to next local context
                 index_local_contexts += 1
 
@@ -117,11 +119,16 @@ class DeepmetDocCreator(object):
                 # for multiple occurences of same target verb within a sentence
 
             # get POS-tag and local context:
-            self.get_tag_and_local(sentence, target_word, processed_verbs)
+            pos_name, local_context = self.get_tag_and_local(sentence, target_word, processed_verbs)
+            self.tags.append(pos_name)  # add POS-tag to class attribute
+            self.locals.append(local_context)  # add local context class attribute
+
             processed_verbs.append(target_word)
 
-        dict_deepmet = {"id": self.essay_id, "sents": self.sentences,
-                        "target_word": self.target_words, "tlms": self.tlms,
+
+
+        dict_deepmet = {"id": self.essay_id, "sentence": self.sentences,
+                        "word": self.target_words, "tlms": self.tlms,
                         "all_mets": self.all_mets, "pos": self.poss,
                         "tag": self.tags, "local": self.locals
                         }
@@ -131,8 +138,6 @@ class DeepmetDocCreator(object):
 
     def save_dfs2targetdir(self):
 
-        # make directory for preprocessed dataframes:
-        os.mkdir("mewsmet4deepmet")
         target_directory = "mewsmet4deepmet"
 
         # preprocess data:
@@ -146,6 +151,10 @@ class DeepmetDocCreator(object):
 
 
 if __name__ == "__main__":
+
+    # create directory for dataframes:
+    os.mkdir("mewsmet4deepmet")
+
     # split data into split "TV-Ads" and split "Teachers":
     df_ads, df_teachers = split_data()
 
