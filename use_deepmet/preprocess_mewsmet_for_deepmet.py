@@ -3,11 +3,9 @@ on the prompt "TV-Ads" and one which is based on the prompt "Teacher".
 Then the data is preprocessed to meet the requirements of DeepMet."""
 
 from nltk import word_tokenize, pos_tag
-#import nltk
 import pandas as pd
 import os
 
-#nltk.download('punkt_tab')
 
 def split_data():  # splits data into essays
     # based on ads- and teacher-prompts (we use these splits
