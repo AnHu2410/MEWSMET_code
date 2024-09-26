@@ -46,7 +46,7 @@ class Corpus(object):
         t2_score_column = "T2IHS Task score (H:H)"
 
         for essay in self.list_of_essays:
-            id_number_only = essay.id[:6]
+            id_number_only = essay.essay_id[:6]
             t1 = essay.T == "T1"
             t2 = essay.T == "T2"
 
@@ -66,7 +66,7 @@ class Corpus(object):
         # the annotators found for each essay and stores numbers in essay object
 
         for essay in self.list_of_essays:
-            rows_essay = self.mewsmet.loc[self.mewsmet['files'] == essay.id]
+            rows_essay = self.mewsmet.loc[self.mewsmet['files'] == essay.essay_id]
             num_tlms = 0
             num_cms = 0
             for ind, row in rows_essay.iterrows():
